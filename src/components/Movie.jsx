@@ -13,15 +13,19 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { movieContext } from "../context/MovieContext";
 import DoughnutChart from "./DoughnutChart";
 
-const Movie = ({ item, handleFavorite }) => {
+const Movie = ({ item, handleFavorite, idx }) => {
   const { myList, setMyList } = useContext(movieContext);
+
+  // className="fade-in-item z-50"
+  // style={{ animationDelay: `${idx * 0.1}s` }}
 
   return (
     <div className="relative         group rounded-lg transition-transform duration-300 hover:scale-125 hover:z-50">
       <div
-        className="flex flex-col  justify-between h-[150px]    group-hover:gap-4 bg-cover bg-center group-hover:rounded-t-md"
+        className="flex flex-col  justify-between h-[150px] fade-in-item    group-hover:gap-4 bg-cover bg-center group-hover:rounded-t-md "
         style={{
           backgroundImage: `url(${img_base_url}/original/${item?.backdrop_path})`,
+          animationDelay: `${idx * 0.1}s`,
         }}
       >
         <div className="flex justify-between  items-center">
@@ -39,7 +43,7 @@ const Movie = ({ item, handleFavorite }) => {
       </div>
       {/* Overlay */}
       <div className="opacity-0 absolute right-0 left-0 hidden group-hover:flex scale-95 group-hover:opacity-100 group-hover:scale-100 flex-col gap-3 p-3 bg-black rounded-b-md transition-all duration-300 ease-in-out">
-      {/* <div> */}
+        {/* <div> */}
         <div className="flex justify-between">
           <div className="flex gap-2">
             <span className="w-5 h-5 bg-white flex items-center justify-center rounded-full hover:bg-white/80">
@@ -68,7 +72,7 @@ const Movie = ({ item, handleFavorite }) => {
           <span className="border p-1">{item?.adult ? "18+" : "13+"}</span>
           <span>1h 38m</span>
           <span className="self-center mb-4 ">
-            <DoughnutChart rating ={item.vote_average} />
+            <DoughnutChart rating={item.vote_average} />
           </span>
         </div>
         <div className="text-xs text-white font-semibold flex flex-wrap gap-1 justify-between items-center">

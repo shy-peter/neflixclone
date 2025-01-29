@@ -29,7 +29,6 @@ const MovieDisplay = () => {
   const title = randMovie.title;
   const description = randMovie.overview;
   console.log(randMovie);
-  
 
   return (
     <>
@@ -39,7 +38,7 @@ const MovieDisplay = () => {
           className="h-1/3 md:h-full  bg-cover bg-center bg-no-repeat text-white relative"
           style={{
             backgroundImage: `url(${
-              img_base_url + "original" + randMovie.backdrop_path||poster_path
+              img_base_url + "original" + randMovie.backdrop_path || poster_path
             })`,
           }}
 
@@ -48,7 +47,7 @@ const MovieDisplay = () => {
           <div className="h-full  bg-black bg-opacity-50 px-3 md:px-10 xl:px-24">
             <div className="flex flex-col gap-5 sm:gap-10 xl:gap-20 ">
               {/* Title Section */}
-              <p className="text-4xl md:text-5xl font-bold xl:text-[80px] max-w-[50%] xl:max-w-[60%]  italic mt-24 md:mt-40 2xl:mt-52">
+              <p className="text-4xl fade-in-text md:text-5xl font-bold xl:text-[80px] max-w-[50%] xl:max-w-[60%]  italic mt-24 md:mt-40 2xl:mt-52">
                 <span className="block">
                   {title?.split(" ").slice(0, 3).join(" ")}{" "}
                   {/* First 3 words */}
@@ -61,7 +60,7 @@ const MovieDisplay = () => {
                 </span>
               </p>
               {/* Description */}
-              <p className="max-w-[70%] text-xs sm:text-base md:text-2xl xl:max-w-[50f%] xl:text-3xl">
+              <p className="max-w-[70%] fade-in-text text-xs sm:text-base md:text-2xl xl:max-w-[50f%] xl:text-3xl">
                 {description}
               </p>
               {/* Buttons and Info */}
@@ -101,4 +100,3 @@ const MovieDisplay = () => {
 };
 
 export default MovieDisplay;
-
