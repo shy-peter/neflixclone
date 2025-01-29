@@ -90,8 +90,9 @@ const Movies = () => {
               .toLowerCase()
               .startsWith(debouncedSearchQuery.toLowerCase())
           )
-          .map((item) => (
+          .map((item, idx) => (
             <Movie
+              idx={idx}
               key={item.id}
               item={item}
               handleFavorite={handleFavorite}
